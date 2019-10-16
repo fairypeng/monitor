@@ -29,7 +29,7 @@ monitor_keys = [
     ("last_arclog", "GAUGE")]
 
 
-ip = socket.hostname()
+ip = socket.gethostname()
 
 
 def check_active(cur):

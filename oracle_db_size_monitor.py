@@ -6,26 +6,13 @@ import json
 import time
 import commands
 import sys
+import socket
 
 username = "xxx"
 password = "xxx"
 
 
-def getHostname():
-    agent_path = os.getcwd()
-    cfg_name = 'cfg.json'
-    cfg = os.path.join(agent_path, cfg_name)
-    with open(cfg, 'r') as wf:
-        content = wf.read()
-        json_data = json.loads(content)
-        hostname = json_data['hostname']
-        if hostname:
-            return hostname
-        else:
-            return os.uname()[1]
-
-
-ip = getHostname()
+ip = socket.gethostname()
 
 
 def check_active(cur):
